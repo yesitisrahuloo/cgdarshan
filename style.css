@@ -1,0 +1,751 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fff;
+    overflow-x: hidden;
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Navigation Bar */
+.navbar {
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    padding: 0.5rem 0;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.nav-logo h2 {
+    color: #2E8B57;
+    font-size: 1.5rem;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-link {
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: #DAA520;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #DAA520;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: #2E8B57;
+    margin: 3px 0;
+    transition: 0.3s;
+}
+
+/* Hero Section with Working Background Image */
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(46, 139, 87, 0.8), rgba(139, 69, 19, 0.8)), 
+                url('https://images.unsplash.com/photo-1548013146-72479768bada?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    padding: 0 2rem;
+    margin-top: 60px;
+}
+
+.hero-content h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.hero-content h1 span {
+    color: #DAA520;
+    display: block;
+}
+
+.hero-content p {
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    max-width: 600px;
+    margin: 0 auto 2.5rem;
+    opacity: 0.9;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background-color: #DAA520;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.cta-button:hover {
+    background-color: #b8860b;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(218, 165, 32, 0.3);
+}
+
+/* Image Styles */
+.card-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 15px 15px 0 0;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.card:hover .card-image img {
+    transform: scale(1.1);
+}
+
+.culture-image, .food-image, .festival-image {
+    height: 150px;
+    overflow: hidden;
+    border-radius: 15px;
+    margin-bottom: 1rem;
+}
+
+.culture-image img, .food-image img, .festival-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.culture-item:hover .culture-image img,
+.food-card:hover .food-image img,
+.festival-card:hover .festival-image img {
+    transform: scale(1.05);
+}
+
+/* Map Link Styles */
+.location-link {
+    color: #DAA520;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.location-link:hover {
+    color: #2E8B57;
+    text-decoration: underline;
+}
+
+.card-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.5rem;
+    gap: 1rem;
+}
+
+.map-button {
+    background: #2E8B57;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 2px solid #2E8B57;
+}
+
+.map-button:hover {
+    background: transparent;
+    color: #2E8B57;
+    transform: translateY(-2px);
+}
+
+.read-more {
+    color: #2E8B57;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+    text-decoration: none;
+}
+
+.read-more:hover {
+    gap: 1rem;
+    color: #DAA520;
+}
+
+/* Preview Cards Section */
+.preview-cards {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    padding: 5rem 5%;
+    background-color: #f8f9fa;
+}
+
+.card {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    width: 300px;
+    overflow: hidden;
+    padding: 0;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #f0f0f0;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.card h3 {
+    color: #2E8B57;
+    font-size: 1.4rem;
+    margin: 1.5rem 1rem 1rem;
+}
+
+.card p {
+    color: #666;
+    margin: 0 1rem 1.5rem;
+    line-height: 1.6;
+}
+
+.card a {
+    color: #DAA520;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: gap 0.3s ease;
+    margin: 0 1rem 1.5rem;
+}
+
+.card a:hover {
+    gap: 1rem;
+}
+
+/* Destinations Section */
+.destinations {
+    padding: 5rem 5%;
+    background: linear-gradient(to bottom, #f9f9f9, #fff);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-header h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: #2E8B57;
+    margin-bottom: 1rem;
+}
+
+.section-header p {
+    font-size: 1.1rem;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Destination Filters */
+.destination-filters {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 0.8rem 1.8rem;
+    background: #fff;
+    border: 2px solid #2E8B57;
+    color: #2E8B57;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: #2E8B57;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.filter-btn[data-filter="hillstation"] {
+    border-color: #4A90E2;
+    color: #4A90E2;
+}
+
+.filter-btn[data-filter="hillstation"]:hover,
+.filter-btn[data-filter="hillstation"].active {
+    background: #4A90E2;
+    color: #fff;
+}
+
+/* Destination Grid */
+.destination-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2.5rem;
+    margin-top: 2rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.destination-card {
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    border: 1px solid #f0f0f0;
+}
+
+.destination-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.card-overlay {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+}
+
+.category-tag {
+    background: rgba(218, 165, 32, 0.95);
+    color: #fff;
+    padding: 0.4rem 1.2rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.destination-card[data-category*="hillstation"] .category-tag {
+    background: rgba(74, 144, 226, 0.95);
+}
+
+.card-content {
+    padding: 2rem;
+}
+
+.card-content h3 {
+    color: #2E8B57;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.location {
+    color: #DAA520;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.description {
+    color: #666;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.card-features {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    margin-bottom: 1.5rem;
+}
+
+.card-features span {
+    font-size: 0.9rem;
+    color: #555;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Culture Preview Section */
+.culture-preview {
+    padding: 5rem 5%;
+    background: linear-gradient(135deg, #8B4513 0%, #2E8B57 100%);
+    color: #fff;
+}
+
+.culture-preview .section-header h2 {
+    color: #fff;
+}
+
+.culture-preview .section-header p {
+    color: rgba(255,255,255,0.9);
+}
+
+.culture-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.culture-item {
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+    background: rgba(255,255,255,0.1);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.culture-item:hover {
+    transform: translateY(-5px);
+    background: rgba(255,255,255,0.15);
+}
+
+.culture-item h3 {
+    color: #DAA520;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+}
+
+.culture-item p {
+    color: rgba(255,255,255,0.9);
+    line-height: 1.6;
+}
+
+.text-center {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+/* Cuisine Section */
+.cuisine-section {
+    padding: 5rem 5%;
+    background: #f8f9fa;
+}
+
+.cuisine-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.food-card {
+    background: #fff;
+    padding: 2.5rem 1.5rem;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    border: 1px solid #f0f0f0;
+}
+
+.food-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+.food-card h3 {
+    color: #2E8B57;
+    margin-bottom: 1rem;
+}
+
+.food-card p {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Festivals Section */
+.festivals-section {
+    padding: 5rem 5%;
+    background: linear-gradient(to bottom, #fff, #f9f9f9);
+}
+
+.festivals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.festival-card {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    border: 1px solid #f0f0f0;
+}
+
+.festival-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+.festival-card h3 {
+    color: #2E8B57;
+    margin-bottom: 1rem;
+}
+
+.festival-card p {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Footer */
+footer {
+    background: linear-gradient(135deg, #2E8B57 0%, #1a5c3a 100%);
+    color: #fff;
+    padding: 3rem 0 1rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 0 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-section h3,
+.footer-section h4 {
+    color: #DAA520;
+    margin-bottom: 1rem;
+}
+
+.footer-section p {
+    color: rgba(255,255,255,0.8);
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section ul li a {
+    color: rgba(255,255,255,0.8);
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #DAA520;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.6);
+    font-size: 0.9rem;
+}
+
+/* Ensure all images are responsive */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Loading animation for images */
+img[loading="lazy"] {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+img[loading="lazy"].loaded {
+    opacity: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        flex-direction: column;
+        background-color: #fff;
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 27px rgba(0,0,0,0.05);
+        padding: 2rem 0;
+        gap: 0;
+    }
+    
+    .nav-menu.active {
+        left: 0;
+    }
+    
+    .nav-item {
+        margin: 1rem 0;
+    }
+    
+    .hero {
+        margin-top: 70px;
+        padding: 0 1rem;
+    }
+    
+    .preview-cards {
+        padding: 3rem 5%;
+    }
+    
+    .card {
+        width: 100%;
+        max-width: 350px;
+    }
+    
+    .destination-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .culture-grid,
+    .cuisine-grid,
+    .festivals-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .filter-btn {
+        padding: 0.7rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .card-actions {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+    
+    .map-button, .read-more {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-container {
+        padding: 0 1rem;
+    }
+    
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .cta-button {
+        padding: 0.8rem 2rem;
+        font-size: 1rem;
+    }
+    
+    .section-header h2 {
+        font-size: 1.8rem;
+    }
+    
+    .card-content,
+    .culture-item,
+    .food-card,
+    .festival-card {
+        padding: 1.5rem 1rem;
+    }
+}
